@@ -1,0 +1,95 @@
+<app-headers></app-headers>
+<div class="container mt-5">
+    <form [formGroup]="formularioCliente" action="">
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group mb-3">
+                    <label for="">Nombre</label>
+                    <input type="text" class="form-control" formControlName="nombre" placeholder="Digite el nombre aqui">
+                    <div *ngIf="formularioCliente?.get('nombre')?.hasError('required') && formularioCliente?.get('nombre')?.dirty" class="alert alert-danger">
+                        El nombre es requerido
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group mb-3">
+                    <label for="">Apellido</label>
+                    <input type="text" class="form-control" formControlName="apellido" placeholder="Digite el apellido aqui">
+                    <div *ngIf="formularioCliente?.get('apellido')?.hasError('required') && formularioCliente?.get('apellido')?.dirty" class="alert alert-danger">
+                        El apellido es requerido
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group mb-3">
+                    <label for="">Correo</label>
+                    <input type="text" class="form-control" formControlName="correo" placeholder="Digite su correo aqui">
+                    <div *ngIf="formularioCliente?.get('correo')?.hasError('required') && formularioCliente?.get('correo')?.dirty" class="alert alert-danger">
+                        El correo es requerido
+                    </div>
+                    <div *ngIf="formularioCliente?.get('correo')?.hasError('email') &&  formularioCliente?.get('correo')?.dirty" class="alert alert-danger">
+                        El correo no es válido
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <label for="">Tipo de identificacion</label>
+                <select class="form-select" formControlName="tipoIdentificacion" aria-label="Default select example">
+                    <option *ngIf="tipoIdentificacion" [value]="tipoIdentificacion">
+                        {{tipoIdentificacion}}
+                    </option>
+                    <option *ngIf="!tipoIdentificacion" hidden>Seleccione el tipo de identificación</option>
+                    <option value="1">Tarjeta de identidad</option>
+                    <option value="2">Cédula de Ciudadanía</option>
+                    <option value="3">Otro</option>
+                </select>
+                <div *ngIf="formularioCliente?.get('tipoIdentificacion')?.hasError('required') && formularioCliente?.get('tipoIdentificacion')?.dirty" class="alert alert-danger">
+                    El tipo de identificacion es requerido
+                </div>
+            </div>
+            
+            <div class="col-sm-4">
+                <div class="form-group mb-3">
+                    <label for="">Numero identificacion</label>
+                    <input type="number" class="form-control" formControlName="numeroIdentificacion" placeholder="Digite su numero de identificacion">
+                    <div *ngIf="formularioCliente?.get('numeroIdentificacion')?.hasError('required') && formularioCliente?.get('numeroIdentificacion')?.dirty" class="alert alert-danger">
+                        El numero de identificacion es requerida
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group mb-3">
+                    <label for="">Fecha de nacimiento</label>
+                    <input type="date" class="form-control" formControlName="fechaNacimiento" placeholder="Digite aqui su fecha de nacimiento">
+                    <div *ngIf="formularioCliente?.get('fechaNacimiento')?.hasError('required') && formularioCliente?.get('fechaNacimiento')?.dirty" class="alert alert-danger">
+                        La fecha nacimiento es requerida
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group mb-3">
+                    <label for="">Telefono</label>
+                    <input type="tel" class="form-control" formControlName="telefono" placeholder="Digite aqui su numero tefonico">
+                </div>
+            </div>
+
+            <div class="col-sm-8">
+                <div class="form-group mb-3">
+                    <label for="">Foto</label>
+                    <input type="file" class="form-control" formControlName="imgUrl" placeholder="Agregue un foto suya">
+                    <div *ngIf="formularioCliente?.get('imgUrl')?.hasError('required') && formularioCliente?.get('imgUrl')?.dirty" class="alert alert-danger">
+                        La fecha nacimiento es requerida
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <button class="btn btn-primary" [disabled]="formularioCliente.invalid" (click)="agregar()" >Agregar</button>
+    </form>
+</div>
