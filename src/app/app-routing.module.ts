@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'listado-cliente', component: ListadoClientesComponent },
   { path: 'agregar-cliente', component: AgregarClienteComponent},
+  { path: 'agregar-cliente/:id_cliente', component: AgregarClienteComponent},
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'precios', component: PreciosComponent},
   { path: 'listado-inscripciones', component: ListadoInscripcionesComponent},

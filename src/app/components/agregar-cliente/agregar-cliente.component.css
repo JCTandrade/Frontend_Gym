@@ -1,0 +1,27 @@
+/* Estilos personalizados para el campo de fecha */
+#fechaNacimiento {
+    /* Cambia los colores de fondo y texto para el campo */
+    background-color: #f4f4f4;
+    color: #333;
+  
+    /* Agrega bordes redondeados al campo */
+    border-radius: 5px;
+  
+    /* Aumenta el tamaño del texto en el campo */
+    font-size: 16px;
+  
+    /* Cambia el color del borde cuando se enfoca en el campo */
+    outline-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  
+    /* Cambia el estilo del cursor cuando se coloca sobre el campo */
+    cursor: pointer;
+  }
+  
+  /* Estilo para el mensaje de error */
+  .alert.alert-danger {
+    margin-top: 5px;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+  }

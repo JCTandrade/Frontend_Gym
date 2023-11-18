@@ -4,51 +4,18 @@
         <h4>Listado de clientes</h4>
 
         <form action="">
-            <div class="form-group mb-3">
+            <div class="form-group mb-4">
                 <input type="text" class="form-control" placeholder="Buscar un cliente">
             </div>
         </form>
 
-        <div class="col-sm-3">
+        <div *ngFor="let cliente of clientes" class="col-sm-3 mb-4">
             <div class="card">
-                <img class="card-img-top imgCliente" src="https://i.pinimg.com/originals/6f/57/76/6f57760966a796644b8cfb0fbc449843.png" alt="Card image cap">
+                <img class="card-img-top imgCliente" [src]="'data:image/jpeg;base64,'+ cliente.clienteFoto">
                 <div class="card-body">
-                  <h5 class="card-title">Juan Carlos</h5>
-                  <a routerLink="#" class="card-link">Editar</a>
-                  <a routerLink="#" class="card-link text-danger">Desactivar</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-3">
-            <div class="card">
-                <img class="card-img-top imgCliente" src="https://i.pinimg.com/236x/c9/3a/d1/c93ad1538753e96aa7a99de8b058ed60.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Jose Luis</h5>
-                  <a routerLink="#" class="card-link">Editar</a>
-                  <a routerLink="#" class="card-link text-danger">Desactivar</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-3">
-            <div class="card">
-                <img class="card-img-top imgCliente" src="https://i.pinimg.com/170x/bc/fd/93/bcfd93b519820504f5210d1b7294d229.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Juliana Mora</h5>
-                  <a routerLink="#" class="card-link">Editar</a>
-                  <a routerLink="#" class="card-link text-danger">Desactivar</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-3">
-            <div class="card">
-                <img class="card-img-top imgCliente" src="https://i.pinimg.com/474x/bd/70/22/bd702201a2b6d8960734f60f34a22754.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Maria Jose</h5>
-                  <a routerLink="#" class="card-link">Editar</a>
-                  <a routerLink="#" class="card-link text-danger">Desactivar</a>
+                  <h5 class="card-title">{{cliente.clienteNombre}} {{cliente.clienteApellido}}</h5>
+                  <a [routerLink]="['/agregar-cliente/', cliente.id_cliente]" class="card-link">Editar</a>
+                  <a [routerLink]="'#'" class="card-link text-danger">Desactivar</a>
                 </div>
             </div>
         </div>

@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, RequiredValidator, Validators } from '@angular/
   templateUrl: './precios.component.html',
   styleUrls: ['./precios.component.css']
 })
+
 export class PreciosComponent implements OnInit {
   formularioPrecios: FormGroup;
 
@@ -18,7 +19,7 @@ export class PreciosComponent implements OnInit {
     }) 
   }
   
-  ngOnInit(): void {
+  ngOnInit() {
 
   }
 
